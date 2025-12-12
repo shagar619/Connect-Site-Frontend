@@ -1,135 +1,168 @@
 
-# ✨ ProConnect Frontend
 
-**ProConnect** is a **modern, high-performance marketplace platform** designed to **connect service providers (Sellers) with service seekers (Clients)**.  
-It is built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and features **role-based modular architecture**, ensuring a **smooth and optimized experience** for **Admins, Sellers, and Clients**.
-
-This project emphasizes **scalability**, **responsiveness**, and **maintainability**, making it **ideal for real-world marketplaces**.
+# 🚀 Connect Site Backend
+Backend for ProConnect - A Freelance Service Marketplace Application. It provides RESTful APIs for user authentication, service management, order processing, payment integration, reviews, admin dashboard, wallet management, messaging, and transaction tracking.
 
 
----
 
-## 🔗 Live Demo & Source
+## 🔗 Live Demo & Source Code
 
-| 🔗 Name                 | Type                | Link                                                               |
-| ----------------------- | ------------------- | ------------------------------------------------------------------ |
-| 🌐 **Live Application** | Frontend Deployment | [Frontend Demo](https://pro-connect-frontend.vercel.app)           |
-| ⚡ **Backend API**       | Deployment          | [Backend Demo](https://pro-connect-backend.vercel.app)             |
-| 💻 **Frontend Source**  | GitHub              | [Frontend Repo](https://github.com/arman-miaa/ProConnect-Frontend) |
-| 🔧 **Backend Source**   | GitHub              | [Backend Repo](https://github.com/arman-miaa/ProConnect-Backend)   |
+* **Frontend Live Demo:** [Connect Live](https://proconnect-app.vercel.app)
+* **Backend Live Demo:** [Connect API](https://proconnect-backend.vercel.app/api/v1)
+* **Frontend Source Code:** [Connect Frontend](https://github.com/shagar619/Connect-Site-Frontend)
+* **Backend Source Code:** [Connect Backend](https://github.com/shagar619/Connect-Site-Backend)
 
----
 
-## 🚀 Core Tech Stack
+## 🛠️ Tech Stack
 
-| Icon | Tech                        | Version  | Description                      |
-| ---- | --------------------------- | -------- | -------------------------------- |
-| ⚡    | **Next.js & React**         | 16.0.7   | SSR, modern React features       |
-| 🟦   | **TypeScript**              | 5.9.3    | Type safety & reliability        |
-| 🎨   | **Tailwind CSS**            | 4.1.17   | Responsive, utility-first design |
-| 🧩   | **Shadcn/ui & Radix UI**    | Latest   | Modular, accessible components| 
-| 📡   | **Axios**                   | 1.13.2   | API requests                     |
-| ✅    | **Zod**                     | 4.1.13   | Runtime validation & schemas     |
-| 📊   | **Recharts & Lucide React** | Latest   | Charts & icons                   |
-| 🎞️  | **Framer Motion**           | 12.23.25 | Animations & transitions         |
-| 🔔   | **Sonner & SweetAlert2**    | Latest   | Notifications & alerts           |
+* **Runtime:** Node.js
+* **Framework:** Express.js
+* **Database:** MongoDB with Mongoose
 
----
 
 ## ✨ Key Features
 
-### 🏠 Public & Marketing Pages (`(commonLayout)`)
+* User Authentication (JWT)
+* Service Listings & Management
+* Order Processing & Tracking
+* Payment Integration (SSLCommerz)
+* Ratings & Reviews
+* Admin Dashboard & Analytics
+* Wallet & Transaction Management
+* Messaging System
+* RESTful API Design
+* Input Validation with Zod
 
-* 🚀 **Homepage (`/`)**: Hero, Features, Stats, Testimonials, CTA
-* 🔍 **Service Browsing**: `/services`, `/services/[id]`
-* 🔑 **Auth Flow**: Login, Registration, Forget/Reset Password
-* 💳 **Payment Status**: `/payment/success`, `/payment/fail`, `/payment/cancel`
-
-### 🛠️ Role-Based Dashboards (`(dashboardLayout)`)
-
-| Icon | Role    | Dashboard                         | Features                                                          |
-| ---- | ------- | --------------------------------- | ----------------------------------------------------------------- |
-| 👑   | Admin   | `/admin/dashboard`                | Users/Sellers/Admins management, Analytics, Transactions, Reports |
-| 🛠️  | Seller  | `/seller/dashboard`               | Service CRUD, Earnings, Payment History, Reviews                  |
-| 🛒   | Client  | `/client/dashboard`               | Track orders, Transaction history, Reviews                        |
-| 🔒   | General | `/my-profile`, `/change-password` | Profile management, Change password                               |
-
-### 💡 Additional Features
-
-
-* 💰 Wallet & Withdrawal management
-* ⭐ Review & Rating system
-* 📈 Analytics & Dashboard charts
-* 🛡️ JWT authentication & Role-based access
-
----
 
 ## 📂 Project Structure
 
 ```
 src/
-├── app/                        # Next.js App Router
-│   ├── (commonLayout)/         # Public & Auth pages
-│   ├── (dashboardLayout)/      # Role-based dashboards
-│   ├── api/                    # API routes
-│   └── globals.css             # Global styles
-├── assets/                     # Icons, Images, Static media
-├── components/                 # UI Components (auth, modules, shared, ui)
-├── hooks/                      # Custom React hooks
-├── lib/                        # Utilities & helpers
-├── services/                   # API calls
-├── types/                      # TS interfaces
-└── zod/                        # Validation schemas
+├── app.ts                      # Express app setup
+├── server.ts                   # DB connection & server start
+├── app/
+│   ├── config/                 # Environment & upload configs
+│   ├── errorHelpers/           # Custom error handling
+│   ├── helpers/                # Error response helpers
+│   ├── interfaces/             # TypeScript interfaces
+│   ├── middlewares/            # Authentication, validation, error & 404 handlers
+│   ├── modules/                # Feature modules (M-C-S)
+│   │   ├── admin/              # Dashboard & analytics
+│   │   ├── auth/               # Authentication
+│   │   ├── order/              # Orders
+│   │   ├── payment/            # Payment processing
+│   │   ├── service/            # Services
+│   │   ├── review/             # Ratings & reviews
+│   │   ├── transaction/        # Transactions
+│   │   ├── user/               # Users
+│   │   ├── wallet/             # Wallet
+│   │   ├── withdrawal/         # Withdrawals
+│   │   ├── utility-messages/   # Messaging
+│   │   ├── report/             # Reports
+│   │   └── ssl/                # SSLCommerz integration
+│   ├── routes/                 # Routes
+│   └── utils/                  # Utility functions
+├── tsconfig.json               # TypeScript config
+└── vercel.json                 # Vercel deployment config
 ```
 
 ---
 
-## ⚙️ Local Setup
+## ⚙️ Local Setup Guide
 
 ### Prerequisites
 
 * Node.js v18+
-* pnpm or npm
+* npm or pnpm
+* MongoDB server or MongoDB Atlas
 
-### Installation
-
-```bash
-git clone https://github.com/arman-miaa/ProConnect-Frontend.git
-cd ProConnect-Frontend
-pnpm install
-```
-
-### Environment Variables
+### 1️⃣ Installation
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL="https://pro-connect-backend.vercel.app/api/v1"
+git clone https://proconnect-backend.vercel.app/api/v1
+cd Connect-Backend
+pnpm install   # or npm install
 ```
 
-### Running Dev Server
+### 2️⃣ Environment Variables
+
+Create `.env` in root:
 
 ```bash
-pnpm run dev
+PORT=5000
+NODE_ENV=development
+DATABASE_URL=<mongodb_connection_string>
+JWT_SECRET=<your_jwt_secret>
+JWT_EXPIRES_IN=7d
+CLOUDINARY_CLOUD_NAME=<name>
+CLOUDINARY_API_KEY=<key>
+CLOUDINARY_API_SECRET=<secret>
+SSL_STORE_ID=<ssl_id>
+SSL_STORE_PASSWORD=<ssl_password>
+EMAIL_USER=<email>
+EMAIL_PASSWORD=<password>
+EMAIL_FROM=noreply@proconnect.com
+FRONTEND_URL=http://localhost:3000
 ```
 
-Access: [http://localhost:3000](http://localhost:3000)
+### 3️⃣ Run Development
+
+```bash
+pnpm run dev   # or npm run dev
+```
+
+### 4️⃣ Build & Production
+
+```bash
+pnpm run build
+pnpm start
+```
+
+---
+
+## 📜 Available Scripts
+
+| Script    | Description                             | Command          |
+| --------- | --------------------------------------- | ---------------- |
+| **dev**   | Run development server with live reload | `pnpm run dev`   |
+| **build** | Compile TS to JS (`/dist`)              | `pnpm run build` |
+| **start** | Run production build                    | `pnpm start`     |
+| **lint**  | ESLint check                            | `pnpm run lint`  |
+| **test**  | Run tests (not configured)              | `pnpm run test`  |
+
+---
+
+## 🔑 Key Dependencies
+
+* **Express.js**: RESTful APIs & middleware
+* **Mongoose**: MongoDB modeling
+* **TypeScript**: Type safety
+* **JWT & Bcryptjs**: Secure auth
+* **Zod**: Runtime validation
+* **Cloudinary & Multer**: File uploads
+* **Nodemailer**: Email sending
+* **Axios**: API requests
+* **CORS & Cookie-Parser**: Security & session
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork & branch: `git checkout -b feature/my-feature`
-2. Commit: `git commit -m 'feat: Add feature'`
-3. Push & PR: `git push origin feature/my-feature`
+1. Fork repository
+2. `git checkout -b feature/awesome-feature`
+3. Commit changes `git commit -m "feat: Added awesome feature"`
+4. Push `git push origin feature/awesome-feature`
+5. Open Pull Request
 
 ---
 
 ## 👤 Author
 
-**Arman Mia** – [GitHub](https://github.com/arman-miaa)
+**Shagar Ahmed** - [GitHub](https://github.com/shagar619)
 
 ---
 
 ## 📄 License
 
-**ISC License** – See `LICENSE` file
+ISC License – See `LICENSE` file
 
